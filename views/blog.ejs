@@ -1,0 +1,18 @@
+<%- include("partials/header"); -%>
+
+<%- include("partials/messages"); -%>
+
+<% if (typeof user !== "undefined" && user.role === "admin") { %>
+    <div class="admin-btns mb-4">
+        <a href="/blog/admin/new" class="btn btn-success">New Post</a>
+    </div>
+<% } %>
+
+<% posts.forEach(function(post) {%>
+    <div class="post mb-4">
+        <h2><a href="/blog/posts/<%=post.id%>"> <%= post.title %> </a></h2>
+        <p>Posted <%= post.formattedDate %></p>
+    </div>
+<% }); %>
+
+<%- include("partials/footer"); -%>

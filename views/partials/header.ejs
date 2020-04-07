@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zach Snoek's Blog</title>
+    <script src="https://kit.fontawesome.com/b82a950b5f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="header my-5">
+            <h1 class="text-center"><a href="/blog">Zach Snoek's Blog</a></h1>
+            <% if (typeof user === "undefined") { %>
+                <p class="text-right"><a href="/blog/user/login">Login</a> | <a href="/blog/user/register">Register</a></p>
+            <% } else { %>
+                <p class="text-right"><a href="/blog/user/logout">Logout</a> | <a href="" data-toggle="modal" data-target="#delete-account-modal">Delete account</a></p>
+
+                <!-- Modal -->
+                <div class="modal" id="delete-account-modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Delete Account</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete your account?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/blog/user/delete" class="btn btn-danger">Delete</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>

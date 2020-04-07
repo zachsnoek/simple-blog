@@ -1,0 +1,26 @@
+<%- include("partials/header"); -%>
+
+    <h1>New Post</h1>
+
+    <%- include("partials/messages"); -%>
+
+    <form action="/blog/admin/new" method="POST">
+        <div class="form-group">
+            <label class="mt-4">Title</label>
+            <input class="form-control" type="text" name="title"
+                value="<%= typeof title != 'undefined' ? title : '' %>">
+            <label class="mt-3">Description</label>
+            <input class="form-control" type="text" name="description"
+                value="<%= typeof description != 'undefined' ? description : '' %>">
+            <label class="mt-3">Post</label>
+            <textarea class="form-control" id="simpleMDE" name="content" rows="20" cols="30"><% if (typeof content !== "undefined") { %>
+<%- content -%><% } %></textarea>
+        </div>
+        <button class="btn btn-success" type="submit" name="button">Publish</button>
+    </form>
+
+    <script>
+        var simplemde = new SimpleMDE({ element: document.getElementById("simpleMDE") });
+    </script>
+
+<%- include("partials/footer"); -%>

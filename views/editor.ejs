@@ -1,0 +1,25 @@
+<%- include("partials/header"); -%>
+
+    <h1>Edit Post</h1>
+
+    <%- include("partials/messages"); -%>
+
+    <form action="/blog/admin/edit/<%= postID %>" method="POST">
+        <div class="form-group">
+            <label class="mt-4">Title</label>
+            <input class="form-control" type="text" name="title" value="<%= title %>">
+
+            <label class="mt-3">Description</label>
+            <input class="form-control" type="text" name="description" value="<%= description %>">
+
+            <label class="mt-3">Content</label>
+            <textarea class="form-control" id="simpleMDE" name="content" rows="20" cols="30"><%= content %></textarea>
+        </div>
+        <button class="btn btn-success" type="submit" name="button">Save</button>
+    </form>
+
+    <script>
+        var simplemde = new SimpleMDE({ element: document.getElementById("simpleMDE") });
+    </script>
+
+<%- include("partials/footer"); -%>
