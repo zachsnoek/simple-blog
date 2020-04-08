@@ -6,6 +6,7 @@ A Node.js blog that features simple user authentication. The author of the blog 
 ## Setup
 1. Configure `DATABASE_URL` and `SESSION_SECRET` in `.env`
 2. Run `npm i`
+3. Start MongoDB
 
 ## Usage
 `$ node app.js`
